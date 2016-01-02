@@ -18,7 +18,8 @@ namespace Oxide.Plugins
         [ChatCommand("getrequest")]
         void GetRequest(BasePlayer player, string command, string[] args)
         {
-            webrequests.EnqueueGet("http://www.google.com/search?q=oxide", (code, response) => GetCallback(code, response, player), this);
+            var WebRequestsGet = new WebRequests();
+			WebRequestsGet.EnqueueGet("http://www.google.com/search?q=oxide", (code, response) => GetCallback(code, response, player), this);
         }
 
         void GetCallback(int code, string response, BasePlayer player)
